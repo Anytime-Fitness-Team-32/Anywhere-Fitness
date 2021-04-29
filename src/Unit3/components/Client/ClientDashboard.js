@@ -6,7 +6,6 @@ import introJs from 'intro.js';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { baseURL } from '../../utils/baseURL';
 import ClientClassCard from './ClientClassCard';
-import axios from 'axios';
 
 
 

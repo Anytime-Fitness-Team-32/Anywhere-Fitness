@@ -10,7 +10,7 @@ const background2 = '#2A2F4A'
 //RESERVE STATE DOES NOT PERSIST WITH DB.
 export default function ClientClassCard(props){
   const [isReserved, setIsReserved] = useState(false);
-  const {c, user} = props
+  const {c} = props
 
   const handleReserve = () => {
     setIsReserved(true)
