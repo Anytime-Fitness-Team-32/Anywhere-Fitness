@@ -5,23 +5,30 @@ import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <div className="header">
-      <h1>Anywhere Fitness 💪</h1>
-
-
-      <div className='login-button'>
-          <Link to='/login'>
-            <button>Login</button>
-          </Link>
+      <div className='title'>
+        <h1>Anywhere Fitness 💪</h1>
       </div>
-      <div className='signup-button'>
-          <Link to='/signup'>
-            <button>Sign-Up</button>
-          </Link>
-      </div>
-      <div className='home-button'>
-          <Link to='/'>
-            <button>Home</button>
-          </Link>
+
+      <div className='sectionalbuttons'>
+        <div className='formbuttons'>
+          <div className='login-button'>
+            <Link to='/login'>
+              <button>Login</button>
+            </Link>
+          </div>
+          <div className='signup-button'>
+            <Link to='/signup'>
+              <button>Sign-Up</button>
+            </Link>
+          </div>
+        </div>
+        <div className='sectionalhomebuttons'>
+          <div className='home-button'>
+            <Link to='/'>
+              <button>Home</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

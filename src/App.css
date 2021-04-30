@@ -1,6 +1,57 @@
 .App-header {
   text-align: center;
   display:flex;
+  flex-direction: column;
+  margin: 0%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 12rem;
+  background-color: purple;
+}
+
+.title {
+  justify-content: flex-start;
+  margin: 1rem 4rem;
+}
+
+h1 {
+  color: coral;
+  font-size: 4rem;
+}
+
+button {
+  margin: 0.3rem ;
+  border-radius: 0.5rem;
+  color:tomato ;
+  background-color:whitesmoke;
+}
+
+.sectionalbuttons {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 1rem 1rem 1rem 1rem;
+  /* flex-direction: row;
+  align-items: flex-start;
   justify-content: space-around;
-  margin: 1%;
+  */
+}
+
+
+.login-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  Margin: 0 35rem;
+}
+
+.signup-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin: 0rem 40rem;
 }

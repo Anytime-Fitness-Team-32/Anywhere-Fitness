@@ -51,7 +51,7 @@ export default function Signup(props) {
   }
   return (
     <div className='login-sectional'>
-      <h3>My SignUp Styling.......</h3>
+      <h3>SIGNUP Styling.......</h3>
       <SignupForm
         signupValues={formValues}
         signupUpdate={updateForm}
