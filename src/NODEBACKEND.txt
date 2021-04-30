@@ -1,0 +1,99 @@
+SignupSectional
+
+import React, { useState} from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+import SignupForm from './SignupForm'
+import { baseURL } from '../Unit3/utils/baseURL';
+
+const initialFormValues = {
+  role: '',
+  email: '',
+  username: '',
+  password: '',
+}
+
+export default function Signup(props) {
+  const [formValues, setFormValues] = useState(initialFormValues)
+  const history = useHistory();
+
+  //Functions Input Interactivity:
+  const updateForm = (inputName, inputValue) => {
+    setFormValues({...formValues, [inputName]: inputValue })
+  }
+
+  //LOGIN FUNCTION
+  const submitForm = () => {
+    const newClient = {
+      email: formValues.email,
+      username: formValues.username,
+      password: formValues.password,
+      name: 'justin',
+      role: formValues.role
+    }
+
+    //PREVENT EMPTY SUBMISSIONS:
+    // if (!newClient.username || !newClient.password || !newClient.primaryemail || !newClient.role) return
+
+
+
+    //Axios POSTS HERE (should CLEAR form on successful submission...avoids multiple posts of same card):
+
+    axios.post(`${baseURL}/api/auth/register`, newClient) //createnew${formValues.role}
+      .then(res => {
+        console.log(res)
+        setFormValues(initialFormValues)
+        window.localStorage.setItem('token', res.data.user.password)
+        formValues.role === 'instructor' ? history.push('/manage') : history.push('/client')
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+
+LoginSectional
+
+import React, { useState } from 'react';
+import axios from 'axios';
+import LoginForm from './LoginForm';
+import { baseURL } from '../Unit3/utils/baseURL';
+import { useHistory } from 'react-router-dom';
+
+const initialFormValues = {
+  username: '',
+  password: '',
+}
+
+export default function Login(props) {
+  const [formValues, setFormValues] = useState(initialFormValues)
+  const history = useHistory()
+  //Functions Input Interactivity:
+  const updateForm = (inputName, inputValue) => {
+    setFormValues({...formValues, [inputName]: inputValue })
+  }
+  
+  const submitForm = () => {
+    //PREVENT EMPTY SUBMISSIONS:
+    // if (!formValues.username || !formValues.role) return
+
+    axios.post(
+				`${baseURL}/api/auth/login`, formValues
+				// `grant_type=password&username=${formValues.username}&password=${formValues.password}`,
+				// {
+				// 	headers: { // btoa is converting our client id/client secret into base64
+				// 		Authorization: `Basic ${btoa('lambda-client:lambda-secret')}`,
+				// 		'Content-Type': 'application/x-www-form-urlencoded',
+				// 	}
+				// ,}
+			,)
+			.then((res) => {
+        setFormValues(initialFormValues);
+				localStorage.setItem('token', res.data.payload); //access_token
+				history.push('/manage');
+			})
+			.catch((err) => {
+				setFormValues(initialFormValues);
+			});
+	};

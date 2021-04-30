@@ -1,12 +1,7 @@
 import React from 'react'
 
-
-
-
-//BUILDS SUBMIT FORM:
 export default function SignupForm(props) {
     const { signupValues, signupUpdate, signupSubmit } = props
-
     //Functions Establishing Input Interactivity:
     const onChange = event => {
         const { name, value } = event.target

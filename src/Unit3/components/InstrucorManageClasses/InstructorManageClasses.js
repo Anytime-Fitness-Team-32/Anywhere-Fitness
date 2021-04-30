@@ -3,7 +3,9 @@ import InstructorClass from './InstructorClass';
 import CreateClass from './CreateClass'
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { baseURL } from '../../utils/baseURL';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import 'intro.js/introjs.css';
+import introJs from 'intro.js';
 
 const StyledDiv = styled.div`
     display:flex;
@@ -22,7 +24,22 @@ export default function InstructorManageClasses(props) {
     const [isCreating, setIsCreating] = useState(false)
     const [instructor, setInstructor] = useState({})
 
-    //GET INSTRUCTOR'S CLASSES`
+    //CHECK FOR USER FIRST VISIT - RUN ONBOARDING 
+    const checkForOnboarding = () => {
+        if(window.localStorage.getItem('id_first')){
+            return
+        } else introJs().setOptions({
+            steps: [
+                {intro: "Thanks for signing up as an instructor! We look forward to providing our services to you and our customers!"},
+                {element: document.querySelector('.create-class-btn'), intro: 'Create a class for prospects to see.'},
+            ]
+        }).start()
+    } 
+    useEffect(() => {
+        checkForOnboarding()
+    }, [])
+
+    //GET INSTRUCTOR'S CLASSES` - ideally I would make a store and useContext to populate classes(setClasses) at the login axios.get - but I don't have time for that right now.
     useEffect(()=> {
         axiosWithAuth().get(`${baseURL}/users/getuserinfo`)
             .then(res =>{
@@ -38,7 +55,7 @@ export default function InstructorManageClasses(props) {
             {
             isCreating
             ? <CreateClass setIsCreating={setIsCreating} instructor={instructor} setClasses={setClasses} classes={classes} /> 
-            : <StyledButton onClick={()=> setIsCreating(true)}>Create a Class</StyledButton>
+            : <StyledButton className='create-class-btn' onClick={()=> setIsCreating(true)}>Create a Class</StyledButton>
             }
             <div style={{display: 'flex', flexFlow: 'row wrap', width:'100%', justifyContent: 'space-evenly'}}>
                 { //c is class
