@@ -33,7 +33,8 @@ export default function Login() {
 
   return (
       <div className='login-sectional'>
-        <h3>My Login Styling.......</h3>
+        <h3>
+          LOGIN Styling.......</h3>
         <LoginForm
           loginValues={formValues}
           loginUpdate={updateForm}

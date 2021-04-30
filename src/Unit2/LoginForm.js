@@ -24,7 +24,6 @@ export default function LoginForm(props) {
                         <option value='User'>User</option>
                     </select>
                 </label>
-                <h4>*User type should reveal auth code input if instructor selected*</h4>
 
                 <label>Password:
                     <input
