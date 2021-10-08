@@ -15,13 +15,25 @@ export default function FindClass(props){
   const [ formValues, setFormValues ] = useState(initialFormValues);
   const {classes, setClasses} = props
   
-   const handleChanges = (evt) => {
-       setFormValues({
-           ...formValues, 
-           [evt.target.name] : evt.target.value
-       })
-      setClasses(classes.filter(c => c.duration === (formValues.duration)))
-   }
+  const handleChanges = (evt) => {
+    let name = evt.target.name
+    setFormValues({
+      ...formValues, 
+      [evt.target.name] : evt.target.value
+    })
+
+    setClasses(classes.filter(c => {
+      debugger;
+      if(formValues[name] === ''){
+        debugger
+        return c
+      } else if(c[name].toLowercase().includes(formValues[name].toLowerCase())) {
+        return c
+      }
+      return c
+    }))
+  }
+    
 
   return (
     <form>
