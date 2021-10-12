@@ -1,6 +1,6 @@
 .App-header {
   text-align: center;
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin: 0%;
 }
@@ -23,29 +23,32 @@ h1 {
 }
 
 button {
-  margin: 0.3rem ;
-  border-radius: 0.5rem;
-  color:tomato ;
-  background-color:whitesmoke;
+  margin: 0.3rem;
+  border-radius: 1rem;
+  color: tomato;
+  background-color: whitesmoke;
 }
 
 .sectionalbuttons {
   display: flex;
   flex-direction: row-reverse;
-  margin: 1rem 1rem 1rem 1rem;
-  /* flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-around;
-  */
+  align-items: center;
+  margin: 2rem;
+  width: 50%;
 }
 
+.header button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  margin: 0.8rem;
+}
 
 .login-form-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  Margin: 0 35rem;
+  margin: 0 35rem;
 }
 
 .signup-form-section {
