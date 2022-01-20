@@ -38,19 +38,3 @@ button {
   justify-content: space-around;
   */
 }
-
-.login-form-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  margin: 0 35rem;
-}
-
-.signup-form-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-around;
-  margin: 0rem 40rem;
-}
