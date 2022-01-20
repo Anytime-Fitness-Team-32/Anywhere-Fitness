@@ -13,6 +13,8 @@ export default function FindClass(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const { classes, setClasses } = props;
 
+  // 2 differnet search functions just to have searchability
+
   const handleChanges = (evt) => {
     setFormValues({
       ...formValues,
