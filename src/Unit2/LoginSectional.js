@@ -13,6 +13,7 @@ const initialFormValues = {
 
 export default function Login() {
   const [formValues, setFormValues] = useState(initialFormValues);
+  const [loginError, setLoginError] = useState(false);
   const history = useHistory();
   //Functions Input Interactivity:
   const updateForm = (inputName, inputValue) => {
@@ -56,6 +57,7 @@ export default function Login() {
       })
       .catch((err) => {
         setFormValues(initialFormValues);
+        setLoginError(true);
       });
   };
 
@@ -66,6 +68,7 @@ export default function Login() {
         loginUpdate={updateForm}
         loginSubmit={submitForm}
       />
+      {loginError && <p>Your username or password are incorrect.</p>}
     </div>
   );
 }
